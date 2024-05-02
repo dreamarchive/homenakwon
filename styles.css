@@ -56,15 +56,15 @@ input[type="text"] {
 
 /* 이미지 추가 */
 .box:nth-child(1) {
-    background-image: url('장은영.png'); /* 첫 번째 박스에 장은영 이미지 적용 */
+    background-image: url('1.png'); /* 첫 번째 박스에 장은영 이미지 적용 */
 }
 
 .box:nth-child(2) {
-    background-image: url('강동균.png'); /* 두 번째 박스에 강동균 이미지 적용 */
+    background-image: url('2.png'); /* 두 번째 박스에 강동균 이미지 적용 */
 }
 
 .box:nth-child(3) {
-    background-image: url('김준서.png'); /* 세 번째 박스에 김준서 이미지 적용 */
+    background-image: url('3.png'); /* 세 번째 박스에 김준서 이미지 적용 */
 }
 /* 이미지 크기 조정 */
 .box {
