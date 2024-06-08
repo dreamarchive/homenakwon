@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no">
-
     <title>홈페이지 낙원</title>
     <link rel="stylesheet" href="styles.css"> <!-- CSS 파일 연결 -->
     <link rel="stylesheet" href="mobile-styles.css"> <!-- 모바일 CSS 파일 -->
@@ -12,6 +11,30 @@
         .box {
             text-align: center; /* 텍스트를 가운데 정렬 */
             margin-top: 10px; /* 텍스트의 상단 여백 추가 */
+        }
+        body {
+            user-select: none; /* 모든 브라우저 호환성을 위해 */
+            -webkit-user-select: none; /* 사파리 */
+            -moz-user-select: none; /* 파이어폭스 */
+            -ms-user-select: none; /* 인터넷 익스플로러 */
+            -webkit-user-drag: none; /* 사파리 */
+            -moz-user-drag: none; /* 파이어폭스 */
+            -ms-user-drag: none; /* 인터넷 익스플로러 */
+            user-drag: none; /* 기본 드래그 방지 */
+        }
+        img {
+            -webkit-user-drag: none;
+            -moz-user-drag: none;
+            -ms-user-drag: none;
+            user-drag: none;
+        }
+        .footer {
+            text-align: center; /* 텍스트를 가운데 정렬 */
+            color: gray; /* 텍스트 색상을 회색으로 설정 */
+            margin-top: 20px; /* 상단 여백 추가 */
+            padding: 10px; /* 패딩 추가 */
+            border-top: 1px solid #ddd; /* 상단에 가로선 추가 */
+            font-size: 12px; /* 글꼴 크기 설정 */
         }
     </style>
 </head>
@@ -22,13 +45,19 @@
   </div>
   <div class="box-container">
     <a href="page1.html" class="box"><낙원에서 죽음을 추모하는 방법>, 장은영</a>
-    <a href="page2.html" class="box"><낙원의 생태 보고서>, 강동균</a>
+    <a href="page2.html" class="box"><낙원의 연대기>, 강동균</a>
     <a href="page3.html" class="box"><낙원의 언어>, 김준서</a>
-    <a href="page4.html" class="box"></a>
-    <a href="page4.html" class="box"></a>
-    <a href="page4.html" class="box"></a>
-    <a href="page4.html" class="box"></a>
+    <a href="page4.html" class="box"><낙원으로>, 신성민</a>
+    <a href="page5.html" class="box"></a>
+    <a href="page6.html" class="box"></a>
+    <a href="page7.html" class="box"></a>
     <br><br><br>
+    <br><br><br>
+
+  </div>
+
+  <div class="footer">
+      &copy; 2024 홈페이지 낙원. 모든 권리 보유. 무단 복제 및 불법 사용을 금지합니다.
   </div>
 
   <script>
@@ -45,6 +74,32 @@
                 box.style.display = "none"; // 그렇지 않은 경우 숨김
             }
         });
+    });
+
+    // 복사 방지 및 개발자 도구 방지 코드
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
+            e.preventDefault();
+        }
+        if(e.keyCode == 123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
     });
   </script>
 </body>
