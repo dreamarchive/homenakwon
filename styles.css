@@ -78,6 +78,12 @@ input[type="text"] {
 .box:nth-child(7) {
     background-image: url('7.png'); /* 세 번째 박스에  이미지 적용 */
 }
+.box:nth-child(8) {
+    background-image: url('8.png'); /* 세 번째 박스에  이미지 적용 */
+}
+.box:nth-child(9) {
+    background-image: url('9.png'); /* 세 번째 박스에  이미지 적용 */
+}
 /* 이미지 크기 조정 */
 .box {
     background-size: cover; /* 이미지가 박스에 꽉 차도록 크기 조정 */
