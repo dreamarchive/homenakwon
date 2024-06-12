@@ -8,16 +8,18 @@
         body {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
         }
         .video-container {
             width: 80%;
             max-width: 1000px;
             aspect-ratio: 16 / 9;
+            margin-top: 40px; /* 비디오 위 여백 조절 가능 */
         }
         iframe {
             width: 100%;
@@ -25,22 +27,75 @@
             border: none;
         }
         .text {
-            color: black;
             text-align: center;
             margin-top: 20px;
-            font-size: 16px;
+            font-size: 15px;
+        }
+        .essay {
+
+            padding: 60px; /* 텍스트 좌우 여백 조절 가능 */
+            width: 80%;
+            max-width: 1000px;
+            font-size: 13px;
+            line-height: 1.6;
+            text-align: center; /* 텍스트 가운데 정렬 */
+            margin-left: auto; /* 가로 여백을 자동으로 조절하여 가운데 정렬 */
+            margin-right: auto; /* 가로 여백을 자동으로 조절하여 가운데 정렬 */
+        }
+        h2, h4 {
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+        }
+        .click-title {
+
+            font-size: 0.9em; /* h4 크기로 설정 */
+            color: #333;
+            cursor: pointer;
+            animation: blink 5s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 5s ease-out;
+            text-align: center; /* 텍스트 가운데 정렬 */
         }
     </style>
 </head>
 <body>
-  <br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
     <div class="video-container">
         <iframe title="vimeo-player" src="https://player.vimeo.com/video/955265720?h=d3aa21831a" width="640" height="360" frameborder="0" allowfullscreen></iframe>
     </div>
+    <br><br><br>
     <div class="text">
-      <br><br><br>
-      password : paradise
 
     </div>
+    <h5 class="click-title" id="manual-title"> password : </h5>
+    <div class="content">
+        <div class="essay">
+            <img src="hi.png" alt="Image" style="max-width: 70%; height: auto;">
+            <!-- 첫 번째 이미지 추가 -->
+
+
+            <!-- 두 번째 이미지 추가 -->
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const title = document.getElementById('manual-title');
+            const content = document.querySelector('.content');
+
+            title.addEventListener('click', function () {
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 </html>
