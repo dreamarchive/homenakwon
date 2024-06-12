@@ -8,7 +8,7 @@
         body {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             margin: 0;
             background-color: white;
@@ -32,15 +32,12 @@
             font-size: 15px;
         }
         .essay {
-
-            padding: 60px; /* 텍스트 좌우 여백 조절 가능 */
-            width: 80%;
+            padding: 0px; /* 텍스트 좌우 여백 조절 가능 */
+            width: 100%; /* 이미지를 가운데 정렬하기 위해 블록 레벨 요소로 설정 */
             max-width: 1000px;
             font-size: 13px;
             line-height: 1.6;
             text-align: center; /* 텍스트 가운데 정렬 */
-            margin-left: auto; /* 가로 여백을 자동으로 조절하여 가운데 정렬 */
-            margin-right: auto; /* 가로 여백을 자동으로 조절하여 가운데 정렬 */
         }
         h2, h4 {
             color: #333;
@@ -49,7 +46,6 @@
             text-align: center;
         }
         .click-title {
-
             font-size: 0.9em; /* h4 크기로 설정 */
             color: #333;
             cursor: pointer;
@@ -65,6 +61,10 @@
             transition: max-height 5s ease-out;
             text-align: center; /* 텍스트 가운데 정렬 */
         }
+        img {
+            max-width: 60%; /* 이미지의 최대 너비 설정 */
+            height: auto; /* 이미지의 높이를 자동으로 조정 */
+        }
     </style>
 </head>
 <body>
@@ -73,17 +73,13 @@
         <iframe title="vimeo-player" src="https://player.vimeo.com/video/955265720?h=d3aa21831a" width="640" height="360" frameborder="0" allowfullscreen></iframe>
     </div>
     <br><br><br>
-    <div class="text">
-
-    </div>
+    <div class="text"></div>
     <h5 class="click-title" id="manual-title"> password : </h5>
     <div class="content">
         <div class="essay">
-            <img src="hi.png" alt="Image" style="max-width: 70%; height: auto;">
-            <!-- 첫 번째 이미지 추가 -->
-
-
-            <!-- 두 번째 이미지 추가 -->
+          <br>
+            <img src="hi.png" alt="Image">
+            <!-- 본문 이미지 추가 -->
         </div>
     </div>
     <br><br><br><br><br>
