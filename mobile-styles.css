@@ -83,9 +83,7 @@ input[type="text"] {
 .box:nth-child(10) {
     background-image: url('10.png'); /* 세 번째 박스에  이미지 적용 */
 }
-.box:nth-child(11) {
-    background-image: url('11.png'); /* 세 번째 박스에  이미지 적용 */
-}
+
 
 /* 마우스를 올렸을 때 변경되는 이미지 설정 */
        .box:hover:nth-child(1), .box:focus:nth-child(1) {
