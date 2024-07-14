@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no">
 
     <title>장은영</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
 
 
     <style>
@@ -17,6 +19,19 @@
             margin-left: auto; /* 가운데 정렬을 위해 추가 */
             margin-right: auto; /* 가운데 정렬을 위해 추가 */
         }
+        /* 전체 글꼴 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            user-select: none; /* 모든 브라우저 호환성을 위해 */
+            -webkit-user-select: none; /* 사파리 */
+            -moz-user-select: none; /* 파이어폭스 */
+            -ms-user-select: none; /* 인터넷 익스플로러 */
+            -webkit-user-drag: none; /* 사파리 */
+            -moz-user-drag: none; /* 파이어폭스 */
+            -ms-user-drag: none; /* 인터넷 익스플로러 */
+            user-drag: none; /* 기본 드래그 방지 */
+        }
+
         input[type="text"] {
             padding: 10px;
             border: 1px solid black;
@@ -38,7 +53,7 @@
             text-align: -webkit-right;
             font-weight: 800;
             font-size: 70px; /* 여기에 글자 크기를 변경 */
-            
+
         }
         .quote {
             color: #888;
