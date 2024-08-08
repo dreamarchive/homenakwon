@@ -96,6 +96,9 @@ input[type="text"] {
        .box:hover:nth-child(3), .box:focus:nth-child(3) {
            background-image: url('3c.png'); /* 두 번째 박스 변경 이미지 */
        }
+       .box:hover:nth-child(4), .box:focus:nth-child(4) {
+           background-image: url('4c.png'); /* 두 번째 박스 변경 이미지 */
+       }
 /* 이미지 크기 조정 */
 .box {
     background-size: cover; /* 이미지가 박스에 꽉 차도록 크기 조정 */
