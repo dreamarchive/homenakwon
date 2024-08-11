@@ -65,6 +65,8 @@
             user-drag: none;
             max-width: 100%;
             height: auto;
+            pointer-events: none;
+        }
         }
     </style>
 </head>
@@ -73,7 +75,7 @@
        <input type="text" placeholder="" id="searchInput">
    </div>
   <div class="container">
-    <p class="centered">낙원에서 유물 관리하기</p>
+    <p class="centered">낙원에서 유물 <br>관리하기</p>
     <br><br><br>
     <p>J : 안녕하세요, 선생님.</p><p>S : 네, 안녕하세요.</p>
     <p>J : 오늘은 낙원수장고를 사람들에게 소개하기 위해 인터뷰를 진행하려 합니다. 먼저 선생님과 수장고에 대한 소개 부탁드립니다.</p>
@@ -87,8 +89,8 @@
 <br><br><br>
     <p>J : 유물을 만나기까지 많은 과정을 거치는 것 같아요. 지금 저희 앞에 놓인 이 유물도 그 많은 과정을 거쳐 온 걸까요?</p>
     <p>S : 네, 맞아요. 앞에 놓인 유물은 지난 하반기 신청 결과에 따라 한국에서 들어온 ‘연상(硯床)’이에요. 연상은 본래 종이나 벼루, 붓, 먹 따위의 문방구를 담아두는 작은 목가구로, 붓글씨가 취미였던 기증자의 할머니가 사용하던 물건이었다고 합니다. 기증자는 이 연상을 할머니께 물려받았는데 본인이 좋아하는 잡동사니를 넣어두는 용도로 사용했대요. 그러다가 연상의 다리 한쪽이 부러지면서 더 이상 사용할 수 없게 되었고, 방 한편에 간직하다 여기 낙원수장고에 기증하였습니다.</p>
-    <img src="yeonsang01.png" alt="유물 관리 과정 이미지">
-    <h5>< 연상과 부서진 다리 ></h5>
+  <br>  <img src="yeonsang01.png" alt="유물 관리 과정 이미지">
+    <h5>< 연상과 부러진 다리 ></h5>
     <p>J : 여기 유물에 적힌 숫자와 문자는 무엇인가요?</p>
     <p>S : 이 문자들은 유물의 고유번호입니다. 수장고에 들어온 유물은 분류체계에 따라 고유번호가 부여된 후 수량 파악 및 실측, 상태 확인, 사진 촬영, 시스템 등록의 과정이 진행돼요. 이 연상에는 ‘2A-1453’이라는 번호가 붙었죠. 유물에 고유번호가 부여되면 가장 먼저, 분리되는 부분들을 파악하고 수량을 확인해요. 이 연상의 경우 몸체 1점(1/4), 뚜껑 1점(2/4), 서랍 1점(3/4)에 다리(4/4)가 하나 부러져 총 4점이에요. 각 부분은 ‘2A-1453’ 고유번호 뒤에 ‘1/4 ~ 4/4’라는 분리번호가 부여되고, 이에 맞게 실측과 마킹이 되어 있어요. 실측은 형태에 따라 기준 방식이 달라지고, 연상 같은 직육면체는 ‘가로×세로×높이’의 순서로 길이를 잰답니다.</p>
     <img src="yeonsang02.png" alt="유물 관리 과정 이미지">
@@ -102,6 +104,9 @@
     <p>S : 네. 여기 낙원수장고에는 ‘落(떨어질 낙)수장고’와 ‘願(원할 원)수장고’가 있어요. 수장고의 위치는 기증자의 요청에 따라 선정됩니다. 낙수장고는 유물을 바로 소각하는 곳이며, 원수장고는 일정 기간 동안 유물을 격납하는 곳이에요. 원수장고는 유물에 담긴 이야기의 종류에 따라 세부 격납 위치가 정해지죠. 이곳에서 관리하는 동안 기증자는 유물을 열람할 수 있고, 더 이상 원하지 않을 경우 낙수장고로 이동하여 처리돼요. 앞서 본 연상은 1차 열람을 진행했고 기증자의 요청에 따라 낙수장고로 이동할 예정입니다.</p>
     <p>J : 그렇게 유물이 소각되면서 유물과 기증자 간의 관계성이 사라지겠네요. 낙원수장고가 추구하는 바를 알 것 같아요. 저희가 준비한 인터뷰는 여기까지입니다. 인터뷰에 응해주셔서 감사합니다.</p>
     <p>S : 감사합니다.</p>
+    <br>
+    <img src="yeonsang03.png" alt="유물 관리 과정 이미지">
+
   </div>
   <script>
         document.getElementById("searchInput").addEventListener("input", function() {
@@ -142,6 +147,28 @@
             if(e.ctrlKey and e.keyCode == 'U'.charCodeAt(0)) {
                 return false;
             }
+
+        });
+        document.getElementById("searchInput").addEventListener("input", function() {
+            var searchValue = this.value.toLowerCase();
+            var paragraphs = document.querySelectorAll(".container p");
+
+            paragraphs.forEach(function(paragraph) {
+                var paragraphText = paragraph.textContent.toLowerCase();
+                if (paragraphText.includes(searchValue)) {
+                    paragraph.style.display = "block";
+                } else {
+                    paragraph.style.display = "none";
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('img').forEach(function(img){
+                img.oncontextmenu = function(e) {
+                    e.preventDefault();
+                };
+            });
         });
     </script>
   </body>
