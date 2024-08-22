@@ -16,10 +16,13 @@
             font-family: Arial, sans-serif;
         }
         .video-container {
-            width: 80%;
-            max-width: 1000px;
+            width: 70%;
+            max-width: 700px;
             aspect-ratio: 16 / 9;
-            margin-top: 40px; /* 비디오 위 여백 조절 가능 */
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0px;
         }
         iframe {
             width: 100%;
@@ -32,12 +35,12 @@
             font-size: 15px;
         }
         .essay {
-            padding: 0px; /* 텍스트 좌우 여백 조절 가능 */
-            width: 100%; /* 이미지를 가운데 정렬하기 위해 블록 레벨 요소로 설정 */
+            padding: 0px;
+            width: 100%;
             max-width: 1000px;
             font-size: 13px;
             line-height: 1.6;
-            text-align: center; /* 텍스트 가운데 정렬 */
+            text-align: center;
         }
         h2, h4 {
             color: #333;
@@ -46,7 +49,7 @@
             text-align: center;
         }
         .click-title {
-            font-size: 0.9em; /* h4 크기로 설정 */
+            font-size: 0.9em;
             color: #333;
             cursor: pointer;
             animation: blink 5s infinite;
@@ -59,31 +62,47 @@
             display: none;
             overflow: hidden;
             transition: max-height 5s ease-out;
-            text-align: center; /* 텍스트 가운데 정렬 */
+            text-align: center;
         }
         img {
-            max-width: 60%; /* 이미지의 최대 너비 설정 */
-            height: auto; /* 이미지의 높이를 자동으로 조정 */
+            max-width: 60%;
+            height: auto;
         }
+        @media (max-width: 1000px) {
+    .video-container div {
+        padding: 28.125% 0 0 0; /* 기존 56.25%에서 조절 */
+    }
+}
+
+@media (max-width: 600px) {
+    .video-container div {
+        padding: 10% 0 0 0; /* 더욱 줄임 */
+    }
+}
+
     </style>
 </head>
 <body>
     <br><br><br><br>
-     <div class="video-container">
-        <iframe title="vimeo-player" src="https://player.vimeo.com/video/987702605?h=eb7cef9e4d" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    <div class="video-container">
+        <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/987702605?h=eb7cef9e4d&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="스스로 구원하기 : 구원"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
     </div>
-    <br>
-    <div class="video-container"> 
-        <iframe title="vimeo-player" src="https://player.vimeo.com/video/997279924?h=1b07195a85" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    <div class="video-container">
+        <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/997279924?h=1b07195a85&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="스스로 구원하기 : 스스로 하기"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
     </div>
     <br>
     <div class="text"></div>
     <h5 class="click-title" id="manual-title"> password : </h5>
     <div class="content">
         <div class="essay">
-          <br>
+            <br>
             <img src="hi.png" alt="Image">
-            <!-- 본문 이미지 추가 -->
         </div>
     </div>
     <br><br><br><br><br>
