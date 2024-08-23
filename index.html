@@ -69,11 +69,11 @@
 
         .container {
             position: relative;
-            height: calc(100vh - 120px);
+            height: calc(100vh - 180px); /* 더 많은 공간을 확보 */
             flex-grow: 1;
             width: 100%;
             overflow: hidden;
-            margin-bottom: 150px;
+            padding-bottom: 60px; /* 풋터 공간 확보 */
         }
 
         .box {
@@ -166,7 +166,8 @@
         function randomPosition(element) {
             const containerWidth = document.querySelector('.container').offsetWidth;
             const containerHeight = document.querySelector('.container').offsetHeight;
-            element.style.top = Math.random() * (containerHeight - 30) + 'px';
+            const maxHeight = containerHeight - 60; // 푸터 공간을 고려해 최대 높이 조정
+            element.style.top = Math.random() * maxHeight + 'px';
             element.style.left = Math.random() * (containerWidth - 100) + 'px';
         }
 
