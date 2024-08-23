@@ -8,13 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        .search-container {
-            text-align: center;
-            margin-top: 50px;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
         body {
             font-family: 'Noto Sans KR', sans-serif;
             user-select: none;
@@ -25,7 +18,18 @@
             -moz-user-drag: none;
             -ms-user-drag: none;
             user-drag: none;
+            background-image: url('.png'); /* 배경 이미지 */
+            background-size: cover; /* 배경을 요소에 맞게 조정 */
         }
+
+        .search-container {
+            text-align: center;
+            margin-top: 50px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         input[type="text"] {
             padding: 10px;
             border: 1px solid black;
@@ -34,30 +38,36 @@
             color: black;
             outline: none;
         }
+
         p {
             line-height: 1.9;
             font-size: 20px;
         }
+
         .container {
             max-width: 600px;
             margin: 50px auto;
             padding: 30px;
         }
+
         .centered {
             text-align: -webkit-right;
             font-weight: 800;
-            font-size: 70px; /* 여기에 글자 크기를 변경 */
+            font-size: 70px;
         }
+
         h5 {
-          text-align: -webkit-center;
-          color: black;
-          font-family: 'Noto Sans KR', sans-serif;
-          font-weight: 500;
-          }
+            text-align: -webkit-center;
+            color: black;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+        }
+
         .quote {
             color: #888;
             font-style: italic;
         }
+
         img {
             -webkit-user-drag: none;
             -moz-user-drag: none;
@@ -67,48 +77,65 @@
             height: auto;
             pointer-events: none;
         }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-size: cover;
+            }
+
+            .search-container {
+                margin-top: 100px;
+                width: 50%;
+            }
+
+            input[type="text"] {
+                padding: 10px;
+                width: calc(100% - 30px);
+            }
         }
     </style>
 </head>
 <body>
-  <div class="search-container">
-       <input type="text" placeholder="" id="searchInput">
-   </div>
-  <div class="container">
-    <p class="centered">낙원에서 유물 <br>관리하기</p>
-    <br><br><br>
-    <p>J : 안녕하세요, 선생님.</p><p>S : 네, 안녕하세요.</p>
-    <p>J : 오늘은 낙원수장고를 사람들에게 소개하기 위해 인터뷰를 진행하려 합니다. 먼저 선생님과 수장고에 대한 소개 부탁드립니다.</p>
-    <p>S : 저는 낙원수장고의 유물관리사입니다. 여기는 기증자의 기억이 담긴 유물을 소장하는 낙원수장고입니다.</p>
-    <p>J : 소개 감사합니다. 지금부터 인터뷰를 시작하겠습니다. 먼저 질문드릴 내용은 낙원수장고에 대한 내용입니다. 낙원수장고는 유물을 소장하고 보존하는 일반적인 수장고와 차이가 있다고 알고 있어요. 그렇다면 우리가 알고 있는 수장고와는 어떤 부분에서 차이가 있나요?</p>
-    <p>S : 음, 일단 낙원수장고는 유물을 일정 기간만 보관하거나 즉시 소각해요. 이러한 부분에서 유물을 오랫동안 보존하는 일반적인 수장고와 차이가 있습니다. 이곳은 유물에 담긴 인연, 애착, 미련 등의 얽매임에서 벗어나기 위해 유물을 놓아주는 곳이니까요. 어떻게 보면 임시 수장고에 가깝다고 말할 수 있을 것 같아요.</p>
-    <p>J : 지금 저희가 인터뷰를 진행하기 위해 들어온 이곳은 어디인가요?</p>
-    <p>S : 여기는 등록을 위해 유물을 정리하는 장소예요. 다양한 경로를 통해 유물이 입수되면 여러 단계를 거쳐 이곳에 격납되죠.</p>
-    <p>J : 아무 유물이나 쉽게 입수될 것 같지는 않은데요. 어떤 과정을 거쳐 수장고에 들어오게 되나요?</p>
-    <p>S : 먼저 기증자 신청이 들어오면 어떤 유물인지 사전 검토를 한 뒤 소장 가치를 판단하는 수증심의위원회가 열려요. 그리고 위원회에서 기증 유물을 입수하기로 결정하면 기증자와 유물 인수인계증을 주고받은 뒤, 유물을 수장고로 운송해옵니다. 그렇게 수장고로 새로 들어오게 된 유물은 외부의 오염물을 제거하는 예방 처리를 약 일주일간 거쳐요. 이러한 훈증 과정이 끝나면 지금 이곳에서 등록을 시작합니다.</p>
-<br><br><br>
-    <p>J : 유물을 만나기까지 많은 과정을 거치는 것 같아요. 지금 저희 앞에 놓인 이 유물도 그 많은 과정을 거쳐 온 걸까요?</p>
-    <p>S : 네, 맞아요. 앞에 놓인 유물은 지난 하반기 신청 결과에 따라 한국에서 들어온 ‘연상(硯床)’이에요. 연상은 본래 종이나 벼루, 붓, 먹 따위의 문방구를 담아두는 작은 목가구로, 붓글씨가 취미였던 기증자의 할머니가 사용하던 물건이었다고 합니다. 기증자는 이 연상을 할머니께 물려받았는데 본인이 좋아하는 잡동사니를 넣어두는 용도로 사용했대요. 그러다가 연상의 다리 한쪽이 부러지면서 더 이상 사용할 수 없게 되었고, 방 한편에 간직하다 여기 낙원수장고에 기증하였습니다.</p>
-  <br>  <img src="yeonsang01.png" alt="유물 관리 과정 이미지">
-    <h5>< 연상과 부러진 다리 ></h5>
-    <p>J : 여기 유물에 적힌 숫자와 문자는 무엇인가요?</p>
-    <p>S : 이 문자들은 유물의 고유번호입니다. 수장고에 들어온 유물은 분류체계에 따라 고유번호가 부여된 후 수량 파악 및 실측, 상태 확인, 사진 촬영, 시스템 등록의 과정이 진행돼요. 이 연상에는 ‘2A-1453’이라는 번호가 붙었죠. 유물에 고유번호가 부여되면 가장 먼저, 분리되는 부분들을 파악하고 수량을 확인해요. 이 연상의 경우 몸체 1점(1/4), 뚜껑 1점(2/4), 서랍 1점(3/4)에 다리(4/4)가 하나 부러져 총 4점이에요. 각 부분은 ‘2A-1453’ 고유번호 뒤에 ‘1/4 ~ 4/4’라는 분리번호가 부여되고, 이에 맞게 실측과 마킹이 되어 있어요. 실측은 형태에 따라 기준 방식이 달라지고, 연상 같은 직육면체는 ‘가로×세로×높이’의 순서로 길이를 잰답니다.</p>
-    <img src="yeonsang02.png" alt="유물 관리 과정 이미지">
-    <h5>< 왼쪽부터 연상의 다리, 뚜껑, 서랍, 몸체 ></h5>
-    <p>J : 고유번호가 붙어 정리되는 점이 도서관의 책들을 떠올리게 해요! 그리고 분리된 유물까지 고유번호가 붙는다는 점은 흥미롭네요.</p>
-    <p>S : 수장고는 가능한 유물을 완전한 형태로 보관하는 것이 목적이기 때문에 부속품일지라도 번호를 부여하여 관리하고 있어요. 이렇게 기초 작업이 끝나면 그때부터 유물을 자세히 분석해요. 이 연상은 오동나무의 자연스러운 결을 살린 채 세부 장식 없이 소박한 형태로 제작되었어요. 그리고 연상의 모서리와 복숭아형 금속 손잡이 군데군데 긁힌 자국이 있어 오래 사용한 것으로 보이죠. 이 연상이 다른 연상과 다른 특이한 점은 밑면에 기증자와 할머니의 이름이 나란히 새겨져 있다는 점이에요.</p>
-<br><br><br>
-    <p>J : 이름이 새겨졌다는 부분이 중요한 가치로 여겨지는 건가요?</p>
-    <p>S : 네. 앞서 말했듯이 저희 수장고는 기억을 비롯한 정신적 가치를 중요하게 여겨요. 이 유물의 경우 다리가 부러질 때까지 사용한 모습과 나란히 적힌 두 사람의 이름이 유물 가치 판단의 기준이 되었어요. 여기서 저희는 오랜 기간 쌓아온 기증자와 할머니 사이의 강한 애착을 파악할 수 있었어요. 이러한 관계성은 수장고의 격납 위치와 연결됩니다.</p>
-    <p>J : 정신적 가치를 중요하게 여긴다는 게 낙원수장고의 큰 매력인 것 같아요. 이러한 유물의 가치들이 수장고의 격납 위치와 어떻게 연결되는 건가요?</p>
-    <p>S : 네. 여기 낙원수장고에는 ‘落(떨어질 낙)수장고’와 ‘願(원할 원)수장고’가 있어요. 수장고의 위치는 기증자의 요청에 따라 선정됩니다. 낙수장고는 유물을 바로 소각하는 곳이며, 원수장고는 일정 기간 동안 유물을 격납하는 곳이에요. 원수장고는 유물에 담긴 이야기의 종류에 따라 세부 격납 위치가 정해지죠. 이곳에서 관리하는 동안 기증자는 유물을 열람할 수 있고, 더 이상 원하지 않을 경우 낙수장고로 이동하여 처리돼요. 앞서 본 연상은 1차 열람을 진행했고 기증자의 요청에 따라 낙수장고로 이동할 예정입니다.</p>
-    <p>J : 그렇게 유물이 소각되면서 유물과 기증자 간의 관계성이 사라지겠네요. 낙원수장고가 추구하는 바를 알 것 같아요. 저희가 준비한 인터뷰는 여기까지입니다. 인터뷰에 응해주셔서 감사합니다.</p>
-    <p>S : 감사합니다.</p>
-    <br>
-    <img src="yeonsang03.png" alt="유물 관리 과정 이미지">
+    <div class="search-container">
+        <input type="text" placeholder="" id="searchInput">
+    </div>
 
-  </div>
-  <script>
+    <div class="container">
+      <p class="centered">낙원에서 유물 <br>관리하기</p>
+      <br><br><br>
+      <p>J : 안녕하세요, 선생님.</p><p>S : 네, 안녕하세요.</p>
+      <p>J : 오늘은 낙원수장고를 사람들에게 소개하기 위해 인터뷰를 진행하려 합니다. 먼저 선생님과 수장고에 대한 소개 부탁드립니다.</p>
+      <p>S : 저는 낙원수장고의 유물관리사입니다. 여기는 기증자의 기억이 담긴 유물을 소장하는 낙원수장고입니다.</p>
+      <p>J : 소개 감사합니다. 지금부터 인터뷰를 시작하겠습니다. 먼저 질문드릴 내용은 낙원수장고에 대한 내용입니다. 낙원수장고는 유물을 소장하고 보존하는 일반적인 수장고와 차이가 있다고 알고 있어요. 그렇다면 우리가 알고 있는 수장고와는 어떤 부분에서 차이가 있나요?</p>
+      <p>S : 음, 일단 낙원수장고는 유물을 일정 기간만 보관하거나 즉시 소각해요. 이러한 부분에서 유물을 오랫동안 보존하는 일반적인 수장고와 차이가 있습니다. 이곳은 유물에 담긴 인연, 애착, 미련 등의 얽매임에서 벗어나기 위해 유물을 놓아주는 곳이니까요. 어떻게 보면 임시 수장고에 가깝다고 말할 수 있을 것 같아요.</p>
+      <p>J : 지금 저희가 인터뷰를 진행하기 위해 들어온 이곳은 어디인가요?</p>
+      <p>S : 여기는 등록을 위해 유물을 정리하는 장소예요. 다양한 경로를 통해 유물이 입수되면 여러 단계를 거쳐 이곳에 격납되죠.</p>
+      <p>J : 아무 유물이나 쉽게 입수될 것 같지는 않은데요. 어떤 과정을 거쳐 수장고에 들어오게 되나요?</p>
+      <p>S : 먼저 기증자 신청이 들어오면 어떤 유물인지 사전 검토를 한 뒤 소장 가치를 판단하는 수증심의위원회가 열려요. 그리고 위원회에서 기증 유물을 입수하기로 결정하면 기증자와 유물 인수인계증을 주고받은 뒤, 유물을 수장고로 운송해옵니다. 그렇게 수장고로 새로 들어오게 된 유물은 외부의 오염물을 제거하는 예방 처리를 약 일주일간 거쳐요. 이러한 훈증 과정이 끝나면 지금 이곳에서 등록을 시작합니다.</p>
+  <br><br><br>
+      <p>J : 유물을 만나기까지 많은 과정을 거치는 것 같아요. 지금 저희 앞에 놓인 이 유물도 그 많은 과정을 거쳐 온 걸까요?</p>
+      <p>S : 네, 맞아요. 앞에 놓인 유물은 지난 하반기 신청 결과에 따라 한국에서 들어온 ‘연상(硯床)’이에요. 연상은 본래 종이나 벼루, 붓, 먹 따위의 문방구를 담아두는 작은 목가구로, 붓글씨가 취미였던 기증자의 할머니가 사용하던 물건이었다고 합니다. 기증자는 이 연상을 할머니께 물려받았는데 본인이 좋아하는 잡동사니를 넣어두는 용도로 사용했대요. 그러다가 연상의 다리 한쪽이 부러지면서 더 이상 사용할 수 없게 되었고, 방 한편에 간직하다 여기 낙원수장고에 기증하였습니다.</p>
+    <br>  <img src="yeonsang01.png" alt="유물 관리 과정 이미지">
+      <h5>< 연상과 부러진 다리 ></h5>
+      <p>J : 여기 유물에 적힌 숫자와 문자는 무엇인가요?</p>
+      <p>S : 이 문자들은 유물의 고유번호입니다. 수장고에 들어온 유물은 분류체계에 따라 고유번호가 부여된 후 수량 파악 및 실측, 상태 확인, 사진 촬영, 시스템 등록의 과정이 진행돼요. 이 연상에는 ‘2A-1453’이라는 번호가 붙었죠. 유물에 고유번호가 부여되면 가장 먼저, 분리되는 부분들을 파악하고 수량을 확인해요. 이 연상의 경우 몸체 1점(1/4), 뚜껑 1점(2/4), 서랍 1점(3/4)에 다리(4/4)가 하나 부러져 총 4점이에요. 각 부분은 ‘2A-1453’ 고유번호 뒤에 ‘1/4 ~ 4/4’라는 분리번호가 부여되고, 이에 맞게 실측과 마킹이 되어 있어요. 실측은 형태에 따라 기준 방식이 달라지고, 연상 같은 직육면체는 ‘가로×세로×높이’의 순서로 길이를 잰답니다.</p>
+      <img src="yeonsang02.png" alt="유물 관리 과정 이미지">
+      <h5>< 왼쪽부터 연상의 다리, 뚜껑, 서랍, 몸체 ></h5>
+      <p>J : 고유번호가 붙어 정리되는 점이 도서관의 책들을 떠올리게 해요! 그리고 분리된 유물까지 고유번호가 붙는다는 점은 흥미롭네요.</p>
+      <p>S : 수장고는 가능한 유물을 완전한 형태로 보관하는 것이 목적이기 때문에 부속품일지라도 번호를 부여하여 관리하고 있어요. 이렇게 기초 작업이 끝나면 그때부터 유물을 자세히 분석해요. 이 연상은 오동나무의 자연스러운 결을 살린 채 세부 장식 없이 소박한 형태로 제작되었어요. 그리고 연상의 모서리와 복숭아형 금속 손잡이 군데군데 긁힌 자국이 있어 오래 사용한 것으로 보이죠. 이 연상이 다른 연상과 다른 특이한 점은 밑면에 기증자와 할머니의 이름이 나란히 새겨져 있다는 점이에요.</p>
+  <br><br><br>
+      <p>J : 이름이 새겨졌다는 부분이 중요한 가치로 여겨지는 건가요?</p>
+      <p>S : 네. 앞서 말했듯이 저희 수장고는 기억을 비롯한 정신적 가치를 중요하게 여겨요. 이 유물의 경우 다리가 부러질 때까지 사용한 모습과 나란히 적힌 두 사람의 이름이 유물 가치 판단의 기준이 되었어요. 여기서 저희는 오랜 기간 쌓아온 기증자와 할머니 사이의 강한 애착을 파악할 수 있었어요. 이러한 관계성은 수장고의 격납 위치와 연결됩니다.</p>
+      <p>J : 정신적 가치를 중요하게 여긴다는 게 낙원수장고의 큰 매력인 것 같아요. 이러한 유물의 가치들이 수장고의 격납 위치와 어떻게 연결되는 건가요?</p>
+      <p>S : 네. 여기 낙원수장고에는 ‘落(떨어질 낙)수장고’와 ‘願(원할 원)수장고’가 있어요. 수장고의 위치는 기증자의 요청에 따라 선정됩니다. 낙수장고는 유물을 바로 소각하는 곳이며, 원수장고는 일정 기간 동안 유물을 격납하는 곳이에요. 원수장고는 유물에 담긴 이야기의 종류에 따라 세부 격납 위치가 정해지죠. 이곳에서 관리하는 동안 기증자는 유물을 열람할 수 있고, 더 이상 원하지 않을 경우 낙수장고로 이동하여 처리돼요. 앞서 본 연상은 1차 열람을 진행했고 기증자의 요청에 따라 낙수장고로 이동할 예정입니다.</p>
+      <p>J : 그렇게 유물이 소각되면서 유물과 기증자 간의 관계성이 사라지겠네요. 낙원수장고가 추구하는 바를 알 것 같아요. 저희가 준비한 인터뷰는 여기까지입니다. 인터뷰에 응해주셔서 감사합니다.</p>
+      <p>S : 감사합니다.</p>
+      <br>
+      <img src="yeonsang03.png" alt="유물 관리 과정 이미지">
+
+    </div>
+
+    <script>
         document.getElementById("searchInput").addEventListener("input", function() {
             var searchValue = this.value.toLowerCase();
             var paragraphs = document.querySelectorAll(".container p");
@@ -123,7 +150,6 @@
             });
         });
 
-        // 복사 방지 및 개발자 도구 방지 코드
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
@@ -132,44 +158,30 @@
             if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
                 e.preventDefault();
             }
-            if(e.keyCode == 123) {
+            if (e.keyCode == 123) {
                 return false;
             }
-            if(e.ctrlKey and e.shiftKey and e.keyCode == 'I'.charCodeAt(0)) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
                 return false;
             }
-            if(e.ctrlKey and e.shiftKey and e.keyCode == 'C'.charCodeAt(0)) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
                 return false;
             }
-            if(e.ctrlKey and e.shiftKey and e.keyCode == 'J'.charCodeAt(0)) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
                 return false;
             }
-            if(e.ctrlKey and e.keyCode == 'U'.charCodeAt(0)) {
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
                 return false;
             }
-
-        });
-        document.getElementById("searchInput").addEventListener("input", function() {
-            var searchValue = this.value.toLowerCase();
-            var paragraphs = document.querySelectorAll(".container p");
-
-            paragraphs.forEach(function(paragraph) {
-                var paragraphText = paragraph.textContent.toLowerCase();
-                if (paragraphText.includes(searchValue)) {
-                    paragraph.style.display = "block";
-                } else {
-                    paragraph.style.display = "none";
-                }
-            });
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('img').forEach(function(img){
+            document.querySelectorAll('img').forEach(function(img) {
                 img.oncontextmenu = function(e) {
                     e.preventDefault();
                 };
             });
         });
     </script>
-  </body>
+</body>
 </html>

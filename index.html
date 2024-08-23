@@ -1,112 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no">
     <title>홈페이지 낙원</title>
-    <link rel="stylesheet" href="styles.css"> <!-- CSS 파일 연결 -->
-    <link rel="stylesheet" href="mobile-styles.css"> <!-- 모바일 CSS 파일 -->
-
     <style>
-        .box {
-            text-align: center; /* 텍스트를 가운데 정렬 */
-            margin-top: 10px; /* 텍스트의 상단 여백 추가 */
-            font-weight: 400; /* 글씨 굵기 설정 */
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
         body {
-            user-select: none; /* 모든 브라우저 호환성을 위해 */
-            -webkit-user-select: none; /* 사파리 */
-            -moz-user-select: none; /* 파이어폭스 */
-            -ms-user-select: none; /* 인터넷 익스플로러 */
-            -webkit-user-drag: none; /* 사파리 */
-            -moz-user-drag: none; /* 파이어폭스 */
-            -ms-user-drag: none; /* 인터넷 익스플로러 */
-            user-drag: none; /* 기본 드래그 방지 */
-        }
-        img {
-            -webkit-user-drag: none;
-            -moz-user-drag: none;
-            -ms-user-drag: none;
+            font-family: 'Noto Sans KR', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
             user-drag: none;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+            width: 300px;
+            outline: none;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            margin-left: 10px;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+        position: relative;
+        height: calc(100vh - 100px); /* Reduce the height to create space */
+        flex-grow: 1;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 50px; /* Add margin to create space above the footer */
+    }
+
+        .box {
+            position: absolute;
+            transition: all 1s ease;
+            font-size: 16px;
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .description {
+            display: none;
+            margin-left: 10px;
+            white-space: nowrap;
+            font-size: 16px;
+            color: gray;
+            font-weight: 500;
+        }
+
+        .box:hover .description {
+            display: inline-block;
+        }
+
+        .box:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px; /* 로고 크기 조정 */
+            height: auto;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+        }
+
         .footer {
-            text-align: center; /* 텍스트를 가운데 정렬 */
-            color: gray; /* 텍스트 색상을 회색으로 설정 */
-            margin-top: 20px; /* 상단 여백 추가 */
-            padding: 10px; /* 패딩 추가 */
-            border-top: 1px solid #ddd; /* 상단에 가로선 추가 */
-            font-size: 12px; /* 글꼴 크기 설정 */
+            text-align: center;
+            color: gray;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-  <div class="search-container">
-      <input type="text" placeholder="" id="searchInput">
-      <i class="fas fa-search search-icon"></i>
-  </div>
-  <div class="box-container">
-    <a href="page4.html" class="box"><낙원으로>, 신성민</a>
-    <a href="page1.html" class="box"><낙원에서 추모하는 방법>, 장은영</a>
-    <a href="page3.html" class="box"><낙원 연대기>, 강동균</a>
-    <a href="page5.html" class="box"><낙원에서 유물 관리하기>, 심희진, 장소영</a>
-    <a href="page6.html" class="box"><한 달 낙원>, 한인경</a>
-    <a href="page7.html" class="box"><한 달 낙원>, 김진휘</a>
-    <a href="page8.html" class="box"><낙원의 오류>, 안종성</a>
-    <a href="page9.html" class="box"></a>
-    <a href="page10.html" class="box"></a>
-    <a href="page11.html" class="box"></a>
-    <br><br><br>
-    <br><br><br>
 
-  </div>
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo">
+    </div>
+<br><br><br>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="">
+        <button id="controlButton" onclick="toggleMovement()">&#10074;&#10074;</button> <!-- 일시정지 이모티콘 사용 -->
+    </div>
+    <br><br>
 
-  <div class="footer">
-      &copy; 2024 홈페이지 낙원. 모든 권리 보유. 무단 복제 및 불법 사용을 금지합니다.
-  </div>
+    <div class="container">
+        <a href="page4.html" id="text1" class="box" style="top: 20px; left: 50px;">
+            신성민 <span class="description">낙원으로</span>
+        </a>
+        <a href="page1.html" id="text2" class="box" style="top: 150px; left: 200px;">
+            장은영 <span class="description">낙원에서 추모하는 방법</span>
+        </a>
+        <a href="page3.html" id="text3" class="box" style="top: 300px; left: 100px;">
+            강동균 <span class="description">낙원 연대기</span>
+        </a>
+        <a href="page5.html" id="text4" class="box" style="top: 50px; left: 300px;">
+            심희진, 장소영 <span class="description">낙원에서 유물 관리하기</span>
+        </a>
+    </div>
 
-  <script>
-    // 검색 이벤트 핸들러
-    document.getElementById("searchInput").addEventListener("input", function() {
-        var searchValue = this.value.toLowerCase(); // 검색어를 소문자로 변환
-        var boxes = document.querySelectorAll(".box"); // 모든 박스 요소 선택
+    <div class="footer">
+        &copy; 2024 홈페이지 낙원. 모든 권리 보유. 무단 복제 및 불법 사용을 금지합니다.
+    </div>
 
-        boxes.forEach(function(box) {
-            var boxText = box.textContent.toLowerCase(); // 각 박스의 텍스트를 소문자로 변환
-            if (boxText.includes(searchValue)) { // 검색어가 포함된 경우
-                box.style.display = "block"; // 해당 박스를 표시
+    <script>
+        let autoMove = setInterval(moveElementsRandomly, 3000); // 3초마다 이동
+        let isPaused = false;
+
+        function randomPosition(element) {
+            const containerWidth = document.querySelector('.container').offsetWidth;
+            const containerHeight = document.querySelector('.container').offsetHeight;
+            element.style.top = Math.random() * (containerHeight - 30) + 'px';
+            element.style.left = Math.random() * (containerWidth - 100) + 'px';
+        }
+
+        function moveElementsRandomly() {
+            const elements = document.querySelectorAll('.box');
+            elements.forEach(element => {
+                randomPosition(element);
+            });
+        }
+
+        function toggleMovement() {
+            const controlButton = document.getElementById('controlButton');
+            if (isPaused) {
+                autoMove = setInterval(moveElementsRandomly, 3000); // 움직임 재개
+                controlButton.innerHTML = "&#10074;&#10074;"; // 일시정지 이모티콘으로 변경
             } else {
-                box.style.display = "none"; // 그렇지 않은 경우 숨김
+                clearInterval(autoMove); // 움직임 멈춤
+                controlButton.innerHTML = "&#9658;"; // 플레이 이모티콘으로 변경
             }
+            isPaused = !isPaused;
+        }
+
+        window.onload = function() {
+            moveElementsRandomly();
+        }
+
+        document.querySelector('#searchInput').addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+            document.querySelectorAll('.box').forEach(element => {
+                const text = element.textContent.toLowerCase();
+                if (text.includes(searchValue)) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            });
+            clearInterval(autoMove); // 검색 시 이동 멈추기
         });
-    });
 
-    // 복사 방지 및 개발자 도구 방지 코드
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
+        document.querySelectorAll('.box').forEach(element => {
+            element.addEventListener('mouseover', function() {
+                clearInterval(autoMove); // 마우스 오버 시 이동 멈추기
+            });
 
-    document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
-            e.preventDefault();
-        }
-        if(e.keyCode == 123) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-            return false;
-        }
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-            return false;
-        }
-    });
-  </script>
+            element.addEventListener('mouseout', function() {
+                if (!isPaused) {
+                    autoMove = setInterval(moveElementsRandomly, 3000); // 마우스 아웃 시 다시 이동 시작
+                }
+            });
+        });
+    </script>
 </body>
 </html>
