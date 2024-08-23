@@ -23,7 +23,7 @@
 
         .search-container {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 60px; /* 검색창 위에 여백 추가 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -38,7 +38,7 @@
             outline: none;
             font-family: 'Noto Sans KR', sans-serif;
             font-size: 16px;
-            border-radius: 0; /* 테두리 끝부분을 직각으로 설정 */
+            border-radius: 0;
         }
 
         button {
@@ -48,7 +48,7 @@
             color: black;
             border: 1px solid black;
             font-family: 'Noto Sans KR', sans-serif;
-            font-size: 20px;  /* 이모티콘 크기 증가 */
+            font-size: 20px;
             cursor: pointer;
             width: 45px;
             height: 45px;
@@ -62,19 +62,19 @@
             button {
                 width: 45px;
                 height: 45px;
-                font-size: 22px;  /* 모바일에서도 이모티콘 크기 유지 */
-                line-height: 1;   /* 이모티콘 정렬 수정 */
+                font-size: 22px;
+                line-height: 1;
             }
         }
 
         .container {
-          position: relative;
-          height: calc(100vh - 120px); /* 푸터와 간격을 더 줍니다 */
-          flex-grow: 1;
-          width: 100%;
-          overflow: hidden;
-          margin-bottom: 120px; /* 푸터 위에 충분한 공간을 추가 */
-      }
+            position: relative;
+            height: calc(100vh - 120px);
+            flex-grow: 1;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 150px;
+        }
 
         .box {
             position: absolute;
@@ -108,7 +108,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 150px; /* 로고 크기 조정 */
+            width: 150px;
             height: auto;
         }
 
@@ -134,12 +134,11 @@
     <div class="logo-container">
         <img src="logo.png" alt="Logo">
     </div>
-<br><br>
+
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="">
-        <button id="controlButton" onclick="toggleMovement()">&#10074;&#10074;</button> <!-- 일시정지 이모티콘 사용 -->
+        <button id="controlButton" onclick="toggleMovement()">&#10074;&#10074;</button>
     </div>
-    <br><br>
 
     <div class="container">
         <a href="page4.html" id="text1" class="box" style="top: 20px; left: 50px;">
@@ -161,7 +160,7 @@
     </div>
 
     <script>
-        let autoMove = setInterval(moveElementsRandomly, 3000); // 3초마다 이동
+        let autoMove = setInterval(moveElementsRandomly, 3000);
         let isPaused = false;
 
         function randomPosition(element) {
@@ -181,11 +180,11 @@
         function toggleMovement() {
             const controlButton = document.getElementById('controlButton');
             if (isPaused) {
-                autoMove = setInterval(moveElementsRandomly, 3000); // 움직임 재개
-                controlButton.innerHTML = "&#10074;&#10074;"; // 일시정지 이모티콘으로 변경
+                autoMove = setInterval(moveElementsRandomly, 3000);
+                controlButton.innerHTML = "&#10074;&#10074;";
             } else {
-                clearInterval(autoMove); // 움직임 멈춤
-                controlButton.innerHTML = "&#9658;"; // 플레이 이모티콘으로 변경
+                clearInterval(autoMove);
+                controlButton.innerHTML = "&#9658;";
             }
             isPaused = !isPaused;
         }
@@ -204,17 +203,17 @@
                     element.style.display = 'none';
                 }
             });
-            clearInterval(autoMove); // 검색 시 이동 멈추기
+            clearInterval(autoMove);
         });
 
         document.querySelectorAll('.box').forEach(element => {
             element.addEventListener('mouseover', function() {
-                clearInterval(autoMove); // 마우스 오버 시 이동 멈추기
+                clearInterval(autoMove);
             });
 
             element.addEventListener('mouseout', function() {
                 if (!isPaused) {
-                    autoMove = setInterval(moveElementsRandomly, 3000); // 마우스 아웃 시 다시 이동 시작
+                    autoMove = setInterval(moveElementsRandomly, 3000);
                 }
             });
         });
