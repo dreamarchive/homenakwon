@@ -68,23 +68,24 @@
         }
 
         .container {
-            position: relative;
-            height: calc(100vh - 180px); /* 더 많은 공간을 확보 */
-            flex-grow: 1;
-            width: 100%;
-            overflow: hidden;
-            padding-bottom: 60px; /* 풋터 공간 확보 */
-        }
+        position: relative;
+        height: calc(100vh - 160px); /* 푸터와 간격을 더 줍니다 */
+        flex-grow: 1;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 120px; /* 푸터 위에 충분한 공간을 추가 */
+    }
 
         .box {
-            position: absolute;
-            transition: all 1s ease;
-            font-size: 16px;
-            color: black;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 500;
-        }
+      position: absolute;
+      transition: all 1s ease;
+      font-size: 16px;
+      color: black;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      max-height: calc(100vh - 200px); /* 푸터로 내려가지 않도록 높이 제한 */
+  }
 
         .description {
             display: none;
