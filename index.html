@@ -23,6 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 10px; /* 검색창과 버튼 사이의 간격 */
         }
 
         input[type="text"] {
@@ -38,29 +39,20 @@
         }
 
         button {
-            padding: 10px;
-            margin-left: 10px;
+            padding: 0;
             background-color: white;
-            color: black;
-            border: 1px solid black;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 20px;
+            border: none;
             cursor: pointer;
             width: 45px;
             height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 1;
         }
 
-        @media (max-width: 600px) {
-            button {
-                width: 45px;
-                height: 45px;
-                font-size: 22px;
-                line-height: 1;
-            }
+        button img {
+            width: 100%;
+            height: 100%;
         }
 
         .container {
@@ -115,7 +107,7 @@
 
         .footer {
             text-align: center;
-            color: gray;
+            color: #49ce7f;
             padding: 10px;
             border-top: 1px solid #ddd;
             font-size: 12px;
@@ -133,7 +125,9 @@
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="">
-        <button id="controlButton" onclick="toggleMovement()">&#10074;&#10074;</button>
+        <button id="controlButton" onclick="toggleMovement()">
+            <img id="controlIcon" src="pause.png" alt="Pause">
+        </button>
     </div>
 
     <div class="container">
@@ -174,13 +168,13 @@
         }
 
         function toggleMovement() {
-            const controlButton = document.getElementById('controlButton');
+            const controlIcon = document.getElementById('controlIcon');
             if (isPaused) {
                 autoMove = setInterval(moveElementsRandomly, 3000);
-                controlButton.innerHTML = "&#10074;&#10074;"; // 일시정지 아이콘
+                controlIcon.src = "pause.png"; // 일시정지 이미지로 변경
             } else {
                 clearInterval(autoMove);
-                controlButton.innerHTML = "&#9658;"; // 플레이 아이콘
+                controlIcon.src = "play.png"; // 플레이 이미지로 변경
             }
             isPaused = !isPaused;
         }
