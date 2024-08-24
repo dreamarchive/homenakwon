@@ -7,26 +7,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-
     <style>
         body {
-            background-image: url('.png'); /* 배경 이미지 */
-            background-size: cover; /* 배경을 요소에 맞게 조정 */
             font-family: 'Noto Sans KR', sans-serif;
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
+            -webkit-user-drag: none;
+            -moz-user-drag: none;
+            -ms-user-drag: none;
             user-drag: none;
+            background-image: url('.png'); /* 배경 이미지 */
+            background-size: cover; /* 배경을 요소에 맞게 조정 */
         }
 
         .search-container {
             text-align: center;
-            margin-top: 100px;
-            width: 50%;
+            margin-top: 50px;
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
-            position: relative;
         }
 
         input[type="text"] {
@@ -35,7 +36,6 @@
             border-radius: 0;
             background-color: transparent;
             color: black;
-            width: calc(100% - 30px);
             outline: none;
         }
 
@@ -56,6 +56,13 @@
             font-size: 70px;
         }
 
+        h5 {
+            text-align: -webkit-center;
+            color: black;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+        }
+
         .quote {
             color: #888;
             font-style: italic;
@@ -66,114 +73,24 @@
             -moz-user-drag: none;
             -ms-user-drag: none;
             user-drag: none;
+            max-width: 100%;
+            height: auto;
+            pointer-events: none;
         }
 
-        .box-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 150px;
-        }
-
-        .box {
-            width: 80%;
-            height: 80px;
-            background-color: transparent;
-            border: 1px solid black;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: black;
-            font-size: 15px;
-            padding: 30px;
-            box-sizing: border-box;
-        }
-
-        .box:nth-child(1) {
-            background-image: url('1.png');
-        }
-
-        .box:nth-child(2) {
-            background-image: url('2.png');
-        }
-
-        .box:nth-child(3) {
-            background-image: url('3.png');
-        }
-
-        .box:nth-child(4) {
-            background-image: url('4.png');
-        }
-
-        .box:nth-child(5) {
-            background-image: url('5.png');
-        }
-
-        .box:nth-child(6) {
-            background-image: url('6.png');
-        }
-
-        .box:nth-child(7) {
-            background-image: url('7.png');
-        }
-
-        .box:nth-child(8) {
-            background-image: url('8.png');
-        }
-
-        .box:nth-child(9) {
-            background-image: url('9.png');
-        }
-
-        .box:nth-child(10) {
-            background-image: url('10.png');
-        }
-
-        .box:hover:nth-child(1), .box:focus:nth-child(1) {
-            background-image: url('1c.png');
-        }
-
-        .box:hover:nth-child(2), .box:focus:nth-child(2) {
-            background-image: url('2c.png');
-        }
-
-        .box:hover:nth-child(3), .box:focus:nth-child(3) {
-            background-image: url('3c.png');
-        }
-
-        .box:hover:nth-child(4), .box:focus:nth-child(4) {
-            background-image: url('4c.png');
-        }
-
-        .box {
-            background-size: cover;
-        }
-
-        @media only screen and (min-width: 601px) {
+        @media only screen and (max-width: 600px) {
             body {
-                background-image: url('.png');
+                background-size: cover;
             }
 
             .search-container {
                 margin-top: 100px;
-                width: 30%;
+                width: 50%;
             }
 
             input[type="text"] {
-                padding: 15px;
-                width: calc(100% - 40px);
-            }
-
-            .box-container {
-                margin-top: 150px;
-            }
-
-            .box {
-                width: 35%;
-                font-size: 16px;
-                padding: 30px;
+                padding: 10px;
+                width: calc(100% - 30px);
             }
         }
     </style>
@@ -181,7 +98,6 @@
 <body>
     <div class="search-container">
         <input type="text" placeholder="" id="searchInput">
-        <i class="fas fa-search search-icon"></i>
     </div>
 
     <div class="container">
@@ -210,6 +126,7 @@
       <p>그럼요 저도 그랬어요<br>동의하며 웃을때마다 소리가 나겠지<br>자꾸 떨어지는 경첩처럼 삐긋 히끗</p>
     </div>
 
+
     <script>
         document.getElementById("searchInput").addEventListener("input", function() {
             var searchValue = this.value.toLowerCase();
@@ -233,21 +150,29 @@
             if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
                 e.preventDefault();
             }
-            if (e.keyCode === 123) {
+            if (e.keyCode == 123) {
                 return false;
             }
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 'I'.charCodeAt(0)) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
                 return false;
             }
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 'C'.charCodeAt(0)) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
                 return false;
             }
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 'J'.charCodeAt(0)) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
                 return false;
             }
-            if (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0)) {
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
                 return false;
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('img').forEach(function(img) {
+                img.oncontextmenu = function(e) {
+                    e.preventDefault();
+                };
+            });
         });
     </script>
 </body>
