@@ -10,10 +10,6 @@
         body {
             font-family: 'Noto Sans KR', sans-serif;
             user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-drag: none;
             margin: 0;
             height: 100vh;
             display: flex;
@@ -23,7 +19,7 @@
 
         .search-container {
             text-align: center;
-            margin-top: 60px; /* 검색창 위에 여백 추가 */
+            margin-top: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -68,24 +64,23 @@
         }
 
         .container {
-        position: relative;
-        height: calc(100vh - 160px); /* 푸터와 간격을 더 줍니다 */
-        flex-grow: 1;
-        width: 100%;
-        overflow: hidden;
-        margin-bottom: 120px; /* 푸터 위에 충분한 공간을 추가 */
-    }
+            position: relative;
+            height: calc(100vh - 120px);
+            flex-grow: 1;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 120px;
+        }
 
         .box {
-      position: absolute;
-      transition: all 1s ease;
-      font-size: 16px;
-      color: black;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: 500;
-      max-height: calc(100vh - 200px); /* 푸터로 내려가지 않도록 높이 제한 */
-  }
+            position: absolute;
+            transition: all 1s ease;
+            font-size: 16px;
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
         .description {
             display: none;
@@ -167,8 +162,7 @@
         function randomPosition(element) {
             const containerWidth = document.querySelector('.container').offsetWidth;
             const containerHeight = document.querySelector('.container').offsetHeight;
-            const maxHeight = containerHeight - 60; // 푸터 공간을 고려해 최대 높이 조정
-            element.style.top = Math.random() * maxHeight + 'px';
+            element.style.top = Math.random() * (containerHeight - 30) + 'px';
             element.style.left = Math.random() * (containerWidth - 100) + 'px';
         }
 
@@ -183,10 +177,10 @@
             const controlButton = document.getElementById('controlButton');
             if (isPaused) {
                 autoMove = setInterval(moveElementsRandomly, 3000);
-                controlButton.innerHTML = "&#10074;&#10074;";
+                controlButton.innerHTML = "&#10074;&#10074;"; // 일시정지 아이콘
             } else {
                 clearInterval(autoMove);
-                controlButton.innerHTML = "&#9658;";
+                controlButton.innerHTML = "&#9658;"; // 플레이 아이콘
             }
             isPaused = !isPaused;
         }
