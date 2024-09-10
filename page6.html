@@ -15,8 +15,8 @@
         .image-container {
             position: relative;
             width: 100vw; /* 기본적으로 전체 화면을 사용 */
-            height: 480vh; /* 스크롤이 가능하게 설정 */
-            padding-top: 0vh; /* 상단 여백을 추가 */
+            height: 400vh; /* 스크롤이 가능하게 설정 */
+            padding-top: 30vh; /* 상단 여백을 추가 */
         }
 
         .image-container img {
@@ -29,16 +29,16 @@
             draggable: false; /* 드래그 방지 */
         }
 
-        /* 이미지의 위치를 픽셀로 고정 */
-        #img1 { top: 150px; right: 11%; width: 48%; }
-        #img2 { top: 600px; left: 10%; width: 35%; }
-        #img3 { top: 900px; right: 11%; width: 25%; }
-        #img4 { top: 1500px; right: 18%; width: 26%; }
-        #img5 { top: 1500px; left: 15%; width: 39%; }
-        #img6 { top: 1900px; left: 8%; width: 25%; }
-        #img7 { top: 2700px; right: 14%; width: 25%; }
-        #img8 { top: 3300px; left: 30%; width: 20%; }
-        #img9 { top: 3900px; left: 7%; width: 33%; }
+        /* 작은 화면에서의 이미지 위치 및 크기 설정 */
+        #img1 { top: 0%; right: 11%; width: 48%; }
+        #img2 { top: 10%; left: 10%; width: 35%; }
+        #img3 { top: 17%; right: 11%; width: 25%; }
+        #img4 { top: 33%; right: 18%; width: 26%; }
+        #img5 { top: 33%; left: 15%; width: 39%; }
+        #img6 { top: 42%; left: 8%; width: 25%; }
+        #img7 { top: 58.5%; right: 14%; width: 25%; }
+        #img8 { top: 71%; left: 30%; width: 20%; }
+        #img9 { top: 85%; left: 7%; width: 33%; }
 
         /* 큰 화면에서 좌우 여백 추가 */
         @media (min-width: 800px) {
@@ -84,6 +84,7 @@
     </style>
 </head>
 <body>
+<br><br><br><br><br><br><br>
   <div class="image-container">
       <img id="img1" src="k1.jpg" alt="Image 1" draggable="false" oncontextmenu="return false;" onclick="openModal('k1.jpg')">
       <img id="img2" src="k2.jpg" alt="Image 2" draggable="false" oncontextmenu="return false;" onclick="openModal('k2.jpg')">
