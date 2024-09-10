@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한인경</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .swiper-container {
+            height: 100%;
+            width: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        /* 이미지 크기를 줄이기 위해 max-width와 max-height를 50%로 설정 */
+        .swiper-slide img {
+            max-width: 30%;
+            max-height: 30%;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .swiper-slide-prev img,
+        .swiper-slide-next img {
+            transform: scale(0.8);
+            opacity: 1;
+        }
+
+        .swiper-slide-active img {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* 큰 이미지 및 관련 이미지 컨테이너 */
+        .related-images-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* 배경을 약간 흰색으로 설정 */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .related-images {
+            display: flex;
+            justify-content: flex-start; /* 이미지가 왼쪽부터 시작 */
+            align-items: center;
+            width: 60%;
+            height: 60%;
+            overflow-x: auto; /* 가로 스크롤 활성화 */
+            padding-left: 43%; /* 기본 왼쪽 여백 설정 */
+        }
+
+        .related-images img {
+            height: 300px; /* 세로 크기를 고정 */
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* 스크롤바 숨기기 */
+        .related-images::-webkit-scrollbar {
+            display: none; /* 크롬, 사파리, 엣지에서 스크롤바 숨기기 */
+        }
+
+        .related-images {
+            -ms-overflow-style: none;  /* IE에서 스크롤바 숨기기 */
+            scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
+        }
+
+        /* 작은 화면에 대한 미디어 쿼리 */
+        @media (max-width: 600px) {
+            .related-images {
+                padding-left: 15%; /* 작은 화면에서는 여백을 줄임 */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+  <div class="swiper-container">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="e1-1.JPG" alt="Image 1" class="thumbnail" data-group="e1"></div>
+          <div class="swiper-slide"><img src="e2-1.jpg" alt="Image 2" class="thumbnail" data-group="e2"></div>
+          <div class="swiper-slide"><img src="e3-1.jpg" alt="Image 3" class="thumbnail" data-group="e3"></div>
+          <div class="swiper-slide"><img src="e4-1.jpg" alt="Image 4" class="thumbnail" data-group="e4"></div>
+          <div class="swiper-slide"><img src="e5-1.JPG" alt="Image 5" class="thumbnail" data-group="e5"></div>
+          <div class="swiper-slide"><img src="e6-1.jpg" alt="Image 6" class="thumbnail" data-group="e6"></div>
+          <div class="swiper-slide"><img src="e7-1.jpg" alt="Image 7" class="thumbnail" data-group="e7"></div>
+      </div>
+  </div>
+
+  <!-- 관련 이미지 보여주는 모달 -->
+  <div class="related-images-container" id="relatedImagesContainer">
+      <div class="close-btn" id="closeBtn">Close</div>
+      <div class="related-images" id="relatedImages">
+          <!-- 여기에 관련 이미지가 동적으로 추가될 예정 -->
+      </div>
+  </div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper('.swiper-container', {
+       direction: 'vertical',
+       mousewheel: true,
+       centeredSlides: true,
+       slidesPerView: 1,
+       spaceBetween: -10,
+       on: {
+           slideChange: function () {
+               this.slides.forEach(slide => slide.style.zIndex = 1);
+               this.slides[this.activeIndex].style.zIndex = 10;
+           }
+       }
+   });
+
+   // 관련 이미지 데이터 세트
+   const relatedImagesData = {
+       'e1': ['e1-1.JPG', 'e1-2.gif', 'e1-3.JPG', 'e1-4.JPG', 'e1-5.gif'],
+       'e2': ['e2-1.jpg', 'e2-2.jpg', 'e2-3.jpg', 'e2-4.jpg', 'e2-5.jpg', 'e2-6.jpg'],
+       'e3': ['e3-1.jpg', 'e3-2.jpg', 'e3-3.jpg', 'e3-4.jpg', 'e3-5.jpg', 'e3-6.jpg', 'e3-7.jpg'],
+       'e4': ['e4-1.jpg', 'e4-2.jpg', 'e4-3.jpg', 'e4-4.jpg', 'e4-5.jpg', 'e4-6.jpg'],
+       'e5': ['e5-1.JPG', 'e5-2.JPG', 'e5-3.JPG', 'e5-4.JPG', 'e5-5.JPG', 'e5-6.JPG', 'e5-7.JPG', 'e5-8.JPG', 'e5-9.JPG', 'e5-10.JPG', 'e5-11.JPG', 'e5-12.JPG', 'e5-13.JPG', 'e5-14.JPG', 'e5-15.JPG'],
+       'e6': ['e6-1.jpg', 'e6-2.jpg', 'e6-3.jpg', 'e6-4.jpg', 'e6-5.jpg', 'e6-6.jpg', 'e6-7.jpg', 'e6-8.jpg'],
+       'e7': ['e7-1.jpg', 'e7-2.jpg', 'e7-3.jpg', 'e7-4.jpg', 'e7-5.gif', 'e7-6.gif', 'e7-7.jpg']
+   };
+
+   // 이미지 클릭 이벤트 처리
+   document.querySelectorAll('.thumbnail').forEach(thumbnail => {
+       thumbnail.addEventListener('click', function() {
+           const group = this.dataset.group;
+           const relatedImages = relatedImagesData[group];
+
+           // 관련 이미지를 동적으로 생성하여 모달에 추가
+           const relatedImagesContainer = document.getElementById('relatedImages');
+           relatedImagesContainer.innerHTML = ''; // 이전 내용 제거
+           relatedImages.forEach(src => {
+               const img = document.createElement('img');
+               img.src = src;
+               relatedImagesContainer.appendChild(img);
+           });
+
+           // 모달 보이기
+           document.getElementById('relatedImagesContainer').style.display = 'flex';
+       });
+   });
+
+   // 모달 닫기
+   document.getElementById('closeBtn').addEventListener('click', function() {
+       document.getElementById('relatedImagesContainer').style.display = 'none';
+   });
+</script>
+
+</body>
+</html>
