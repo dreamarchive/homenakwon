@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>한인경</title>
+    <!-- Google Fonts - Gowun Batang -->
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body, html {
@@ -25,6 +27,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative; /* 텍스트가 이미지 위에 배치될 수 있도록 슬라이드에 상대적 위치 설정 */
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
@@ -47,6 +50,19 @@
         .swiper-slide-active img {
             transform: scale(1);
             opacity: 1;
+        }
+
+        /* 텍스트를 이미지 위에 중앙 배치 */
+        .text {
+            position: absolute;
+            top: 35%; /* 텍스트를 슬라이드 중앙에 위치 */
+            left: 30%; /* 텍스트를 슬라이드 중앙에 위치 */
+            transform: translate(-50%, 0%); /* 중앙에서 위치를 보정 */
+            font-family: 'Gowun Batang', serif;
+            font-size: 10px;
+            color: #000; /* 검정색 텍스트 */
+            text-align: right; /* 텍스트는 오른쪽 정렬 */
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
         }
 
         /* 큰 이미지 및 관련 이미지 컨테이너 */
@@ -104,7 +120,7 @@
         /* 작은 화면에 대한 미디어 쿼리 */
         @media (max-width: 800px) {
             .related-images {
-                padding-left: 1%; /* 작은 화면에서는 여백을 줄임 */
+                padding-left: 0%; /* 작은 화면에서는 여백을 줄임 */
             }
         }
 
@@ -124,7 +140,10 @@
           <div class="swiper-slide"><img src="e2-1.jpg" alt="Image 2" class="thumbnail" data-group="e2"></div>
           <div class="swiper-slide"><img src="e3-1.jpg" alt="Image 3" class="thumbnail" data-group="e3"></div>
           <div class="swiper-slide"><img src="e4-1.jpg" alt="Image 4" class="thumbnail" data-group="e4"></div>
-          <div class="swiper-slide"><img src="e5-1.jpg" alt="Image 5" class="thumbnail" data-group="e5"></div>
+          <div class="swiper-slide">
+              <img src="e5-1.jpg" alt="Image 5" class="thumbnail" data-group="e5">
+              <div class="text">lost paradise and faded echoes of <br>old salvation<br>.<br>.<br>.</div>
+          </div>
           <div class="swiper-slide"><img src="e6-1.jpg" alt="Image 6" class="thumbnail" data-group="e6"></div>
           <div class="swiper-slide"><img src="e7-1.jpg" alt="Image 7" class="thumbnail" data-group="e7"></div>
       </div>
