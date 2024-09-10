@@ -22,7 +22,13 @@
         .image-container img {
             position: absolute;
             cursor: pointer; /* 클릭 가능한 커서 */
+            -webkit-user-select: none; /* 텍스트나 이미지 선택 방지 (크롬, 사파리) */
+            -moz-user-select: none; /* 파이어폭스 */
+            -ms-user-select: none; /* 인터넷 익스플로러 */
+            user-select: none; /* 텍스트나 이미지 선택 방지 (모든 브라우저) */
+            draggable: false; /* 드래그 방지 */
         }
+
         /* 작은 화면에서의 이미지 위치 및 크기 설정 */
         #img1 { top: 0; left: 22%; width: 30%; }
         #img2 { top: 10%; right: 12%; width: 30%; }
@@ -80,15 +86,15 @@
 <body>
 <br><br><br><br><br><br>
   <div class="image-container">
-      <img id="img1" src="k1.jpg" alt="Image 1" onclick="openModal('k1.jpg')">
-      <img id="img2" src="k2.jpg" alt="Image 2" onclick="openModal('k2.jpg')">
-      <img id="img3" src="k3.jpg" alt="Image 3" onclick="openModal('k3.jpg')">
-      <img id="img4" src="k4.jpg" alt="Image 4" onclick="openModal('k4.jpg')">
-      <img id="img5" src="k5.jpg" alt="Image 5" onclick="openModal('k5.jpg')">
-      <img id="img6" src="k6.jpg" alt="Image 6" onclick="openModal('k6.jpg')">
-      <img id="img7" src="k7.jpg" alt="Image 7" onclick="openModal('k7.jpg')">
-      <img id="img8" src="k8.jpg" alt="Image 8" onclick="openModal('k8.jpg')">
-      <img id="img9" src="k9.jpg" alt="Image 9" onclick="openModal('k9.jpg')">
+      <img id="img1" src="k1.jpg" alt="Image 1" draggable="false" oncontextmenu="return false;" onclick="openModal('k1.jpg')">
+      <img id="img2" src="k2.jpg" alt="Image 2" draggable="false" oncontextmenu="return false;" onclick="openModal('k2.jpg')">
+      <img id="img3" src="k3.jpg" alt="Image 3" draggable="false" oncontextmenu="return false;" onclick="openModal('k3.jpg')">
+      <img id="img4" src="k4.jpg" alt="Image 4" draggable="false" oncontextmenu="return false;" onclick="openModal('k4.jpg')">
+      <img id="img5" src="k5.jpg" alt="Image 5" draggable="false" oncontextmenu="return false;" onclick="openModal('k5.jpg')">
+      <img id="img6" src="k6.jpg" alt="Image 6" draggable="false" oncontextmenu="return false;" onclick="openModal('k6.jpg')">
+      <img id="img7" src="k7.jpg" alt="Image 7" draggable="false" oncontextmenu="return false;" onclick="openModal('k7.jpg')">
+      <img id="img8" src="k8.jpg" alt="Image 8" draggable="false" oncontextmenu="return false;" onclick="openModal('k8.jpg')">
+      <img id="img9" src="k9.jpg" alt="Image 9" draggable="false" oncontextmenu="return false;" onclick="openModal('k9.jpg')">
   </div>
 
   <!-- 모달 (팝업) -->
