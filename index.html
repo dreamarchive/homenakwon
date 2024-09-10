@@ -15,6 +15,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden; /* 스크롤 없애기 */
         }
 
         .search-container {
@@ -58,11 +59,10 @@
 
         .container {
             position: relative;
-            height: calc(100vh - 120px);
             flex-grow: 1;
             width: 100%;
-            overflow: hidden;
-            margin-bottom: 120px;
+            height: calc(100vh - 120px);
+            overflow: hidden; /* 스크롤 없애기 */
         }
 
         .box {
@@ -144,10 +144,10 @@
         <a href="page5.html" id="text4" class="box" style="top: 50px; left: 300px;">
             심희진, 장소영 <span class="description">낙원에서 유물 관리하기</span>
         </a>
-        <a href="page7.html" id="text4" class="box" style="top: 50px; left: 300px;">
+        <a href="page7.html" id="text5" class="box" style="top: 50px; left: 400px;">
             한인경 <span class="description">한 달 낙원</span>
         </a>
-        <a href="page6.html" id="text4" class="box" style="top: 50px; left: 300px;">
+        <a href="page6.html" id="text6" class="box" style="top: 150px; left: 500px;">
             김진휘 <span class="description">한 달 낙원</span>
         </a>
     </div>
