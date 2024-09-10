@@ -55,28 +55,14 @@
         /* 텍스트를 이미지 위에 중앙 배치 */
         .text {
             position: absolute;
-            top: 35%; /* 데스크탑에서의 텍스트 위치 */
-            left: 18%; /* 데스크탑에서의 텍스트 위치 */
+            top: 35%; /* 텍스트를 슬라이드 중앙에 위치 */
+            left: 18%; /* 텍스트를 슬라이드 중앙에 위치 */
             transform: translate(0%, 0%); /* 중앙에서 위치를 보정 */
             font-family: 'Gowun Batang', serif;
             font-size: 8px;
             color: #000; /* 검정색 텍스트 */
             text-align: right; /* 텍스트는 오른쪽 정렬 */
             white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-        }
-
-        /* 작은 화면에 대한 미디어 쿼리 */
-        @media (max-width: 800px) {
-            .text {
-                top: 35%; /* 모바일 화면에서의 텍스트 위치 */
-                left: 11%; /* 모바일 화면에서의 텍스트 위치 */
-                font-size: 7px; /* 모바일에서 폰트 크기 조정 */
-.related-images {
-        padding-left: 0%; /* 작은 화면에서는 여백을 줄임 */
-    }
-}
-
-            }
         }
 
         /* 큰 이미지 및 관련 이미지 컨테이너 */
@@ -129,6 +115,13 @@
         .related-images {
             -ms-overflow-style: none;  /* IE에서 스크롤바 숨기기 */
             scrollbar-width: none;  /* Firefox에서 스크롤바 숨기기 */
+        }
+
+        /* 작은 화면에 대한 미디어 쿼리 */
+        @media (max-width: 800px) {
+            .related-images {
+                padding-left: 0%; /* 작은 화면에서는 여백을 줄임 */
+            }
         }
 
     </style>
