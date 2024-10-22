@@ -83,14 +83,19 @@
         }
 
         /* 모바일 버전 */
-        @media only screen and (max-width: 700px) {
+        @media only screen and (max-width: 600px) {
             body {
                 background-size: cover; /* 모바일 배경 이미지 */
             }
-          
-            p[style*="text-align: right;"] {
-                font-size: 8px; /* 모바일에서 해당 텍스트의 글자 크기를 더 작게 조정 */
+            .search-container {
+                margin-top: 100px;
+                width: 50%; /* 모바일 버전의 검색창 너비 */
             }
+            input[type="text"] {
+                padding: 10px;
+                width: calc(100% - 30px); /* 입력창 너비 조정 */
+            }
+            p[style*="text-align: right;"] { font-size: 10px !important; }
         }
     </style>
 </head>
@@ -113,15 +118,4 @@
       </div>
     <script>
         // 터치 이벤트를 추가하여 모바일에서 툴팁 표시
-        document.querySelectorAll('.tooltip').forEach(function(tooltip) {
-            tooltip.addEventListener('click', function() {
-                // 다른 활성화된 툴팁 비활성화
-                document.querySelectorAll('.tooltip.active').forEach(function(activeTooltip) {
-                    if (activeTooltip !== tooltip) {
-                        activeTooltip.classList.remove('active');
-                    }
-                });
-                // 현재 클릭한 툴팁 활성화 토글
-                this.classList.toggle('active');
-            });
-        });
+        document.querySelectorAll
