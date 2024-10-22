@@ -40,7 +40,7 @@
         }
         p {
             line-height: 1.9;
-            font-size: 17px;
+            font-size: 15px;
         }
         .container {
             max-width: 620px;
@@ -95,8 +95,12 @@
                 padding: 10px;
                 width: calc(100% - 30px); /* 입력창 너비 조정 */
             }
-            p[style*="text-align: right;"] { font-size: 9px !important; }
-        }
+            p[style*="text-align: right;"] {
+        font-size: 12px;
+        transform: scale(0.7);
+        transform-origin: right;
+    }
+}
     </style>
 </head>
 <body>
