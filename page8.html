@@ -68,30 +68,28 @@
             position: relative;
             cursor: pointer;
         }
-        .tooltip .tooltiptext { left: 50%; transform: translateX(-50%);
+        .tooltip .tooltiptext {
+            left: 50%;
+            transform: translateX(-50%);
             opacity: 0;
             transition: opacity 0.3s;
+            visibility: hidden;
+            color: black;
         }
-        .tooltip .tooltiptext::after {
-            display: none; /* 화살표 제거 */
-        }
-        .tooltip:hover .tooltiptext {
+        .tooltip:hover .tooltiptext,
+        .tooltip.active .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
 
         /* 모바일 버전 */
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 700px) {
             body {
                 background-size: cover; /* 모바일 배경 이미지 */
             }
-            .search-container {
-                margin-top: 100px;
-                width: 50%; /* 모바일 버전의 검색창 너비 */
-            }
-            input[type="text"] {
-                padding: 10px;
-                width: calc(100% - 30px); /* 입력창 너비 조정 */
+          
+            p[style*="text-align: right;"] {
+                font-size: 8px; /* 모바일에서 해당 텍스트의 글자 크기를 더 작게 조정 */
             }
         }
     </style>
@@ -101,7 +99,7 @@
     <div class="container">
       <p class="centered">아드리아해 빙하의 말로<br>tel harmonium</p>
         <br><br><br>
-        <p style="text-align: right; font-size: 10px;">음정의 나열은 개인의 취향이지만 음정은 개인의 취향이 될 수 없다는 이치로,<br> 이들 노래의 나무는 불순의 넓이를 정신의 길이로 나눈 각 면에서 낙원을 결정했다.<br>- 조연호</p>
+        <p style="text-align: right; font-size: 12px;">음정의 나열은 개인의 취향이지만 음정은 개인의 취향이 될 수 없다는 이치로,<br> 이들 노래의 나무는 불순의 넓이를 정신의 길이로 나눈 각 면에서 낙원을 결정했다.<br>- 조연호</p>
 <br><br>
         <p>⠀⠀⠀극권의 나는 새들은 빙층이 갈라지는 소리를 통해 느리게 <span class="tooltip">포르티시모<span class="tooltiptext">(*악보에서 ‘매우 세게’ 치라는 말)</span></span>를 배운다고 생각한다.
           빛과 진동이 대척에서 빙상을 유랑 보내고, 그것은 해류를 따라 단단한 것에서 경도 없는 것으로 환절한다. 해수면 아래에는 관측되기 이전에 가변하는 형상이 있다. 손으로 더듬어 실체를 확인하려 든다면 넘실대는 물결의 윤무 속에 잡히는 것이란 오롯이 체온과 수온, 그늘 따위를 갉아먹는 벌레 같은 빛이다. 계속 붙잡을 수 없다는 속성을 공유하는 그것들은 인간을 영원히 항해하는 갑판원으로 남게 한다. 대개 귓바퀴와 비강만이 떠날 시기를 알고 있는데, 밀려오는 것을 부여안은 기억을 간직하고 있기 때문이다.
@@ -114,33 +112,16 @@
 
       </div>
     <script>
+        // 터치 이벤트를 추가하여 모바일에서 툴팁 표시
+        document.querySelectorAll('.tooltip').forEach(function(tooltip) {
+            tooltip.addEventListener('click', function() {
+                // 다른 활성화된 툴팁 비활성화
+                document.querySelectorAll('.tooltip.active').forEach(function(activeTooltip) {
+                    if (activeTooltip !== tooltip) {
+                        activeTooltip.classList.remove('active');
+                    }
                 });
-
-        // 복사 방지 및 개발자 도구 방지 코드
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+                // 현재 클릭한 툴팁 활성화 토글
+                this.classList.toggle('active');
+            });
         });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'a')) {
-                e.preventDefault();
-            }
-            if(e.keyCode == 123) {
-                return false;
-            }
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-                return false;
-            }
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-                return false;
-            }
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-                return false;
-            }
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-                return false;
-            }
-        });
-    </script>
-</body>
-</html>
