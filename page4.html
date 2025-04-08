@@ -1,170 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신성민</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-image: url('.png'); /* 배경 이미지 */
-            background-size: cover; /* 배경을 요소에 맞게 조정 */
-            font-family: 'Noto Sans KR', sans-serif;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-drag: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            color: black;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>신성민</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('.png');
+      background-size: cover;
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      color: black;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-drag: none;
+      -webkit-user-drag: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .video-container {
-            width: 90%;
-            max-width: 960px;
-            aspect-ratio: 16 / 9;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0;
-        }
+    /* 드래그 방지 요소 지정 */
+    img, p, h1, h2, h3, h4, h5, h6, div, span {
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      -webkit-user-drag: none !important;
+      pointer-events: auto;
+    }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+    .video-container {
+      width: 90%;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+    }
 
-        .text {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 15px;
-        }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-        .essay {
-            padding: 0px;
-            width: 100%;
-            max-width: 1000px;
-            font-size: 13px;
-            line-height: 1.6;
-            text-align: center;
-        }
+    .text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 15px;
+    }
 
-        h2, h4 {
-            color: #333;
-        }
+    .essay {
+      padding: 0px;
+      width: 100%;
+      max-width: 1000px;
+      font-size: 13px;
+      line-height: 1.6;
+      text-align: center;
+      margin-top: 20px;
+    }
 
-        h2 {
-            text-align: center;
-        }
+    img {
+      max-width: 70%;
+      height: auto;
+    }
 
-        .click-title {
-            font-size: 0.9em;
-            color: #333;
-            cursor: pointer;
-            animation: blink 5s infinite;
-        }
+    h2, h4 {
+      color: #333;
+    }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+    h2 {
+      text-align: center;
+    }
 
-        .content {
-            display: none;
-            overflow: hidden;
-            transition: max-height 5s ease-out;
-            text-align: center;
-        }
+    p {
+      line-height: 1.9;
+      font-size: 20px;
+    }
 
-        img {
-            max-width: 60%;
-            height: auto;
-        }
+    .container {
+      max-width: 620px;
+      margin: 50px auto;
+      padding: 30px;
+    }
 
-        /* 큰 화면에서 영상의 최대 너비를 더 줄임 */
-        @media only screen and (min-width: 1200px) {
-            .video-container {
-                width: 80%;
-                max-width: 900px;
-            }
-        }
+    .centered {
+      text-align: -webkit-center;
+      font-weight: 600;
+      font-size: 35px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
 
-        /* 더 큰 화면에서의 설정 */
-        @media only screen and (min-width: 1600px) {
-            .video-container {
-                width: 50%;
-                max-width: 600px;
-            }
-        }
+    @media only screen and (min-width: 1200px) {
+      .video-container {
+        width: 80%;
+        max-width: 900px;
+      }
+    }
 
-        /* 작은 화면에서의 설정 */
-        @media only screen and (max-width: 600px) {
-            .video-container {
-                width: 95%;
-                max-width: none;
-            }
-        }
-        p {
-            line-height: 1.9;
-            font-size: 20px;
-        }
-        .container {
-            max-width: 620px;
-            margin: 50px auto;
-            padding: 30px;
-        }
-        .centered {
-            text-align: -webkit-center;
-            font-weight: 600;
-            font-size: 35px; /* 여기에 글자 크기를 변경 */
-        }
-        .video-container {
-    margin-top: 10px; /* 동영상 상단 여백 조정 */
-}
+    @media only screen and (min-width: 1600px) {
+      .video-container {
+        width: 50%;
+        max-width: 600px;
+      }
+    }
 
-h5.click-title {
-    margin-top: 0px; /* "Password:" 텍스트 상단 여백 조정 */
-}
-
-p.centered {
-    margin-top: 20px; /* "낙원으로" 텍스트 상단 여백 조정 */
-    margin-bottom: 10px; /* "낙원으로" 텍스트 하단 여백 조정 */
-}
-}
-    </style>
+    @media only screen and (max-width: 600px) {
+      .video-container {
+        width: 95%;
+        max-width: none;
+      }
+    }
+  </style>
 </head>
-<body>
-<br><br><br><br>
+<body oncontextmenu="return false;">
+  <br><br><br><br>
 
-    <div class="video-container">
-        <iframe src="https://player.vimeo.com/video/1017804137?h=41516b7989" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="스스로 구원하기"></iframe>
-    </div>
-    <p class="centered">낙원으로</p>
-    <div class="text"></div>
-    <h5 class="click-title" id="manual-title">Password:</h5>
-    <div class="content">
-        <div class="essay">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/NLv9KqxPQgQ" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="스스로 구원하기"></iframe>
+  </div>
 
-            <img src="hi.png" alt="Image">
-        </div>
-    </div>
-    <br><br><br><br><br>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const title = document.getElementById('manual-title');
-            const content = document.querySelector('.content');
+  <p class="centered">낙원으로</p>
 
-            title.addEventListener('click', function () {
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
-            });
-        });
-    </script>
+  <div class="essay">
+    <img src="shinhset.jpg" alt="Image">
+  </div>
+  <div class="essay">
+    <img src="shincber.jpg" alt="Image">
+  </div>
+
+  <br><br><br><br><br>
 </body>
 </html>
